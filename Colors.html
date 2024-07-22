@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+</head>
+<style>
+    .example1 {
+     height: 50px;	
+     overflow: hidden;
+     position: relative;
+    }
+    .example1 h3 {
+     font-size: 3em;
+     color: rgb(21, 255, 0);
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     line-height: 50px;
+     text-align: center;
+     /* Starting position */
+     -moz-transform:translateX(100%);
+     -webkit-transform:translateX(100%);	
+     transform:translateX(100%);
+     /* Apply animation to this element */	
+     -moz-animation: example1 15s linear infinite;
+     -webkit-animation: example1 15s linear infinite;
+     animation: example1 15s linear infinite;
+    }
+    /* Move it (define the animation) */
+    @-moz-keyframes example1 {
+     0%   { -moz-transform: translateX(100%); }
+     100% { -moz-transform: translateX(-100%); }
+    }
+    @-webkit-keyframes example1 {
+     0%   { -webkit-transform: translateX(100%); }
+     100% { -webkit-transform: translateX(-100%); }
+    }
+    @keyframes example1 {
+     0%   { 
+     -moz-transform: translateX(100%); /* Firefox bug fix */
+     -webkit-transform: translateX(100%); /* Firefox bug fix */
+     transform: translateX(100%); 		
+     }
+     100% { 
+     -moz-transform: translateX(-100%); /* Firefox bug fix */
+     -webkit-transform: translateX(-100%); /* Firefox bug fix */
+     transform: translateX(-100%); 
+     }
+    }
+    </style>
+    
+    <!-- HTML -->	
+    <div class="example1">
+    <h3>Colors</h3>
+    </div>
+    <style>
+        body {
+            background-color: rgb(255, 0, 0);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .content {
+            margin-top: 20px;
+        }
+    </style>
+</body>
+<h1>Change Background Color</h1>
+<input type="color" id="colorPicker">
+<div class="content">
+</div>
+
+<script>
+    document.getElementById('colorPicker').addEventListener('input', function(event) {
+        document.body.style.backgroundColor = event.target.value;
+    });
+</script>
+</body>
+</html>
