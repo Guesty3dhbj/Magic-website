@@ -60,24 +60,42 @@
 <body>
     <h1>WORK IN PROGRESS</h1>
     <style>
-        @keyframes rainbow {
-          0% { background-color: #ff0000; }
-          14% { background-color: #ff7f00; }
-          28% { background-color: #ffff00; }
-          42% { background-color: #00ff00; }
-          57% { background-color: #0000ff; }
-          71% { background-color: #4b0082; }
-          85% { background-color: #8b00ff; }
-          100% { background-color: #ff0000; }
-        }
-      
-        body {
-          animation: rainbow 2s infinite linear;
-        }
-      </style>
-      
-</body>
-
+      @keyframes rainbow {
+        0% { background-color: #ff0000; }
+        14% { background-color: #ff7f00; }
+        28% { background-color: #ffff00; }
+        42% { background-color: #00ff00; }
+        57% { background-color: #0000ff; }
+        71% { background-color: #4b0082; }
+        85% { background-color: #8b00ff; }
+        100% { background-color: #ff0000; }
+      }
+    
+      body {
+        animation: rainbow 2s infinite linear;
+      }
+    
+      body.stop-animation {
+        animation: none;
+      }
+    
+      button {
+        position: absolute;
+        left: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: not-allowed;
+      }
+    </style>
+    
+    <button onclick="stopAnimation()">Stop Rainbow Background</button>
+    
+    <script>
+      function stopAnimation() {
+        document.body.classList.toggle('stop-animation');
+      }
+    </script>
+    
 </html>
 <style>
     @keyframes rainbow {
@@ -98,30 +116,3 @@
     .stop-animation {
       animation-play-state: paused;
     }
-  
-    input[type="button"] {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-right: 10px;
-    }
-  </style>
-  
-  <input type="button" value="Stop Rainbow Background" onclick="stopAnimation()">
-  <input type="button" value="Start Rainbow Background" onclick="startAnimation()">
-  
-  <script>
-    function stopAnimation() {
-      document.body.classList.add('stop-animation');
-    }
-  
-    function startAnimation() {
-      document.body.classList.remove('play-animation');
-    }
-  </script>
-  
-  
-  
